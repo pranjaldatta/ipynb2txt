@@ -1,0 +1,256 @@
+############################################################
+#CODE:
+
+#imports
+from functools import reduce
+############################################################
+
+
+
+############################################################
+#CODE:
+
+#Q1. Use map to double numbers
+
+def double_num(n):
+  return n*2
+
+arr = map(int, input("Enter list of numbers: ").split())
+print("Doubing numbers using map ...")
+arr = list(map(double_num, arr))
+print(arr)
+
+#Outputs: 
+
+Enter list of numbers: 1 2 3 4 5 
+Doubing numbers using map ...
+[2, 4, 6, 8, 10]
+
+############################################################
+
+
+
+############################################################
+#CODE:
+
+#Q2. add lists and then multiply ... 
+
+numbers1 = [1,2,3,4,5,6]
+numbers2 = [4,6,12,3,2,1]
+numbers3 = [4,2,8,3,2,1]
+
+res1 = list(map(lambda x,y: x + y, numbers1, numbers2))
+res2 = list(map(lambda x,y: x*y, res1, numbers3))
+print("Final result: ", res2)
+
+#Outputs: 
+
+Final result:  [20, 16, 120, 21, 14, 7]
+
+############################################################
+
+
+
+############################################################
+#CODE:
+
+#Q3. List of strings, list of characters
+
+list_of_strings = input().split()
+print("List of strings: ", list_of_strings)
+list_of_chars = list(map(list, list_of_strings))
+print("List of chars: ", list_of_chars)
+
+#Outputs: 
+
+cat dog horse tiger lion
+List of strings:  ['cat', 'dog', 'horse', 'tiger', 'lion']
+List of chars:  [['c', 'a', 't'], ['d', 'o', 'g'], ['h', 'o', 'r', 's', 'e'], ['t', 'i', 'g', 'e', 'r'], ['l', 'i', 'o', 'n']]
+
+############################################################
+
+
+
+############################################################
+#CODE:
+
+#Q4. Cube using def and lambda
+
+def cube(x):
+  return x*x*x
+
+num = int(input("Enter number: "))
+
+print("Cubing with def: ", cube(num))
+lamb = lambda x: x*x*x
+print("Cubing with lambda: ", lamb(num))
+
+#Outputs: 
+
+Enter number: 5
+Cubing with def:  125
+Cubing with lambda:  125
+
+############################################################
+
+
+
+############################################################
+#CODE:
+
+#Q5: lambda and filter: divisible by 4
+
+input_lists = [21, 24, 12, 34, 10, 15, 41] 
+res = list(filter(lambda x: x%4 == 0, input_lists))
+print(res)
+
+#Outputs: 
+
+[24, 12]
+
+############################################################
+
+
+
+############################################################
+#CODE:
+
+#Q6: reduce 
+arr = list(map(int, input().split()))
+sum_list = reduce(lambda x, y: x + y, arr)
+prod = reduce(lambda x, y: x * y, arr)
+print("Sum: ", sum_list)
+print("Prod: ", prod)
+
+
+#Outputs: 
+
+1 2 3 4 5 6
+Sum:  21
+Prod:  720
+
+############################################################
+
+
+
+############################################################
+#CODE:
+
+#Q7. Add two list and modulo it
+
+list1 = list(map(int, input().split()))
+list2 = list(map(int, input().split()))
+
+X = list(map(lambda x,y: x+y, list1, list2))
+Y = list(map(lambda x: x%2, X))
+print(X)
+print(Y)
+
+#Outputs: 
+
+1 2 3 4 5
+6 7 8 9 10
+[7, 9, 11, 13, 15]
+[1, 1, 1, 1, 1]
+
+############################################################
+
+
+
+############################################################
+#CODE:
+
+#8 select numbers from a list less than 2
+
+list1 = list(map(int, input().split()))
+
+fin_list = list(filter(lambda x: x <= 2, list1))
+print(fin_list)
+
+
+#Outputs: 
+
+1 2 -1 -2 -3 -4 -5 4 5 6 7
+[1, 2, -1, -2, -3, -4, -5]
+
+############################################################
+
+
+
+############################################################
+#CODE:
+
+#Q9. Farenheit to celsius and vice versa
+
+def F_to_c(f):
+  return (f - 32) * (5/9)
+
+def C_to_F(c):
+  return (9/5) * c + 32
+
+choice = int(input("Enter 1 to convert F to C or Enter 2 to convert C to F: "))
+
+if choice == 1:
+  temp = [int(input("Enter temp in farenheight: "))]  
+  temp = map(float, map(F_to_c, temp))
+  print("Converted: ", list(temp)[0])
+else: 
+  temp = [int(input("Enter temp in celsius: "))]
+  temp = map(float, map(C_to_F, temp)) 
+  print("Converted: ", list(temp)[0]) 
+
+#Outputs: 
+
+Enter 1 to convert F to C or Enter 2 to convert C to F: 2
+Enter temp in celsius: 100
+Converted:  212.0
+
+############################################################
+
+
+
+############################################################
+#CODE:
+
+#Q10. Generate Fibo and then separate
+
+def Fibo(n):
+  arr = [0, 1]
+  n -= 2
+  c = 1
+  while c <= n:
+    new_item = arr[c] + arr[c-1]
+    c += 1
+    arr.append(new_item)
+  return arr
+
+n = int(input("Enter length of fibo series: "))
+fibo_list = Fibo(n)
+
+even_fibo = list(filter(lambda x: x%2 == 0, fibo_list))
+odd_fibo = list(filter(lambda x: x % 2 != 0, fibo_list))
+
+print("Even nums: ", even_fibo)
+print("Odd nums: ", odd_fibo)
+
+
+
+
+#Outputs: 
+
+Enter length of fibo series: 11
+Even nums:  [0, 2, 8, 34]
+Odd nums:  [1, 1, 3, 5, 13, 21, 55]
+
+############################################################
+
+
+
+############################################################
+#CODE:
+
+
+############################################################
+
+
+
